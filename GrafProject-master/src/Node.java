@@ -28,7 +28,7 @@ public class Node {
         return name;
     }
 
-    @Override
+    //@Override
     public boolean equals(Node otherNode){
         return (this.name==otherNode.getName() && this.index==otherNode.getIndex());
     }

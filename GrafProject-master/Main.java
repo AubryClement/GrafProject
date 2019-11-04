@@ -1,220 +1,417 @@
-import java.util.Scanner;
+import java.util.*;
+
 
 public class Main {
-
     public static void main(String[] args) {
-        SwitchOperatedTextMenu();
-        //Graf g = new Graf();
-        //g.addEdge(1, 2);
-        //g.addEdge(1, 3);
-        //g.addEdge(2, 2);
-        //g.addEdge(2, 4);
-        //g.addEdge(4, 5);
-        //g.addEdge(4, 6);
-        //g.addEdge(6, 7);
-        //System.out.println(g.adjList.get(1));
-        //System.out.println(g.getAllNodes());
-        //String s = g.toDotString();
-        //System.out.println(s);
-        //g.toDotFile();
-        //Graf f = g.getTransitiveClosure();
-        //s = f.toDotString();
-        //System.out.println(s);
-    }
+        Graf myGraph = new Graf();
+        Scanner menuChoiceScan = new Scanner(System.in);
+        // print menu
+        System.out.println("1. Create an empty graph");
+        System.out.println("2. Add a node");
+        System.out.println("3. Remove a node");
+        System.out.println("4. Add an edge");
+        System.out.println("5. Remove an edge");
+        System.out.println("6. Get the list of all nodes");
+        System.out.println("7. Get successors of a node");
+        System.out.println("8. Get the list of all edges");
+        System.out.println("9. Get the list of all edges leaving a node");
+        System.out.println("10. Get the list of all edges entering a node");
+        System.out.println("11. Get the list of all edges incident to a node");
+        System.out.println("12. Get a representation of the graph in the SA (successor array) formalism");
+        System.out.println("13. Get a representation of the graph as an adjacency matrix");
+        System.out.println("14. Show the graph in the DOT format");
+        System.out.println("15. Read the graph from a DOT file");
+        System.out.println("16. Export the graph to a DOT file");
+        System.out.println("17. Reverse the graph");
+        System.out.println("18. Compute the transitive closure of the graph");
+        System.out.println("19. Traverse the graph in DSF");
+        System.out.println("20. Traverse the graph in BSF");
+        System.out.println("21. Print the Menu");
+        System.out.println("0. Quit this application");
+        System.out.println("----------------------------------");
 
+        // handle user commands
+        boolean quit = false;
+        boolean init = false;
+        int menuItem;
+        do {
+            System.out.print("Choose menu item:\n");
+            menuItem = menuChoiceScan.nextInt();
+            switch (menuItem) {
+                case 1:
 
-    public class SwitchOperatedTextMenu {
-        public static void main(String[] args) {
-            Scanner menuChoiceScan = new Scanner(System.in);
-            // print menu
-            System.out.println("1. Create an empty graph\n");
-            System.out.println("2. Add a node\n");
-            System.out.println("3. Remove a node\n");
-            System.out.println("4. Add an edge\n");
-            System.out.println("5. Remove an edge\n");
-            System.out.println("6. Get the list of all nodes \n");
-            System.out.println("7. Get successors of a node\n");
-            System.out.println("8. Get the list of all edges \n");
-            System.out.println("9. Get the list of all edges leaving a node\n");
-            System.out.println("10. Get the list of all edges entering a node\n");
-            System.out.println("11. Get the list of all edges incident to a node\n");
-            System.out.println("12. Get a representation of the graph in the SA (successor array) formalism\n");
-            System.out.println("13. Get a representation of the graph as an adjacency matrix\n");
-            System.out.println("14. Show the graph in the DOT format\n");
-            System.out.println("15. Read the graph from a DOT file\n");
-            System.out.println("16. Export the graph to a DOT file\n");
-            System.out.println("17. Reverse the graph\n");
-            System.out.println("18. Compute the transitive closure of the graph\n");
-            System.out.println("19. Traverse the graph in DSF\n");
-            System.out.println("20. Traverse the graph in BSF\n");
-            System.out.println("0. Quit this application\n");
+                    System.out.println("You've chosen option #1 : Create an empty graph");
+                    init = true;
+                    myGraph = new Graf();
+                    System.out.println("Done \n ----------------------------------\n");
+                    break;
 
-            // handle user commands
-            boolean quit = false;
-            int menuItem;
-            do {
-                System.out.print("Choose menu item:\n");
-                menuItem = menuChoiceScan.nextInt();
-                switch (menuItem) {
-                    case 1:
-                        System.out.println("You've chosen option #1 : Create an empty graph\n");
-                        Graf myGraph = new Graf();
-                        System.out.println("Done \n");
-                        break;
-
-                    case 2:
-                        System.out.println("You've chosen option #2 : Add a node\n");
+                case 2:
+                    if (init) {
+                        System.out.println("You've chosen option #2 : Add a node");
                         Scanner newNodeScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int newNodeIndex = newNodeScan.nextInt();
                         myGraph.addNode(newNodeIndex);
-                        System.out.println("Done \n");
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 3:
-                        System.out.println("You've chosen option #3 : Remove a node\n");
+                    }
+
+                case 3:
+                    if (init) {
+                        System.out.println("You've chosen option #3 : Remove a node");
                         Scanner killNodeScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node you want to delete\n");
                         int killNodeIndex = killNodeScan.nextInt();
                         myGraph.removeNode(killNodeIndex);
-                        System.out.println("Done \n");
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 4:
-                        System.out.println("You've chosen option #4 : Add an edge\n");
+                    }
+
+                case 4:
+                    if (init) {
+                        System.out.println("You've chosen option #4 : Add an edge");
                         Scanner newEdgeScan = new Scanner(System.in);
                         System.out.print("Please enter the first node of the new edge\n");
                         int newEdgeFrom = newEdgeScan.nextInt();
                         System.out.print("Please enter the first node of the new edge\n");
                         int newEdgeTo = newEdgeScan.nextInt();
-                        myGraph.addNode(newEdgeFrom, newEdgeTo);
-                        System.out.println("Done \n");
+                        myGraph.addEdge(newEdgeFrom, newEdgeTo);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 5:
-                        System.out.println("You've chosen option #5 : Remove an edge\n");
-                        Scanner newEdgeScan = new Scanner(System.in);
+                    }
+
+                case 5:
+                    if (init) {
+                        System.out.println("You've chosen option #5 : Remove an edge");
+                        Scanner killEdgeScan = new Scanner(System.in);
                         System.out.print("Please enter the first node of the new edge you want to delete\n");
-                        int killEdgeFrom = newEdgeScan.nextInt();
+                        int killEdgeFrom = killEdgeScan.nextInt();
                         System.out.print("Please enter the first node of the new edge you want to delete\n");
-                        int killEdgeTo = newEdgeScan.nextInt();
-                        myGraph.removeNode(killEdgeFrom, killEdgeTo);
-                        System.out.println("Done \n");
+                        int killEdgeTo = killEdgeScan.nextInt();
+                        myGraph.removeEdge(killEdgeFrom, killEdgeTo);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 6:
-                        System.out.println("You've chosen option #6 : Get the list of all nodes\n");
+                    }
+
+                case 6:
+                    if (init) {
+                        System.out.println("You've chosen option #6 : Get the list of all nodes");
                         List<Node> allNodesList = myGraph.getAllNodes();
-                        System.out.println("Done \n");
+                        printNodeList(allNodesList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 7:
-                        System.out.println("You've chosen option #7 : Get successors of a node\n");
+                    }
+
+                case 7:
+                    if (init) {
+                        System.out.println("You've chosen option #7 : Get successors of a node");
                         Scanner nodeSuccessorsScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int nodeSuccIndex = nodeSuccessorsScan.nextInt();
-                        int[] successorArray = myGraph.getSuccessorsArray(nodeSuccIndex);
-                        System.out.println("Done \n");
+                        List<Node> successorArray = myGraph.getSuccessors(nodeSuccIndex);
+                        printNodeList(successorArray);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 8:
-                        System.out.println("You've chosen option #8 : Get the list of all edges\n");
+                    }
+
+                case 8:
+                    if (init) {
+                        System.out.println("You've chosen option #8 : Get the list of all edges");
                         List<Edge> allEdgesList = myGraph.getAllEdges();
-                        System.out.println("Done \n");
+                        printEdgeList(allEdgesList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
+                    }
 
-                    case 9:
-                        System.out.println("You've chosen option #9 : Get the list of all edges leaving a node\n");
+
+                case 9:
+                    if (init) {
+                        System.out.println("You've chosen option #9 : Get the list of all edges leaving a node");
                         Scanner nodeOutScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int nodeOutIndex = nodeOutScan.nextInt();
                         List<Edge> myOutEdgesList = myGraph.getOutEdges(nodeOutIndex);
-                        System.out.println("Done \n");
+                        printEdgeList(myOutEdgesList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 10:
-                        System.out.println("You've chosen option #10 : Get the list of all edges entering a node\n");
+                    }
+
+                case 10:
+                    if (init) {
+                        System.out.println("You've chosen option #10 : Get the list of all edges entering a node");
                         Scanner nodeInScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int nodeInIndex = nodeInScan.nextInt();
                         List<Edge> myInEdgesList = myGraph.getInEdges(nodeInIndex);
-                        System.out.println("Done \n");
+                        printEdgeList(myInEdgesList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 11:
-                        System.out.println("You've chosen option #11 : Get the list of all edges incident to a node\n");
+                    }
+
+                case 11:
+                    if (init) {
+                        System.out.println("You've chosen option #11 : Get the list of all edges incident to a node");
                         Scanner nodeIncidentScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int nodeIncidentIndex = nodeIncidentScan.nextInt();
                         List<Edge> myIncidentEdgesList = myGraph.getIncidentEdges(nodeIncidentIndex);
-                        System.out.println("Done \n");
+                        printEdgeList(myIncidentEdgesList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 12:
-                        System.out.println("You've chosen option #12 : Get a representation of the graph in the SA (successor array) formalism\n");
+                    }
+
+                case 12:
+                    if (init) {
+                        System.out.println("You've chosen option #12 : Get a representation of the graph in the SA (successor array) formalism");
                         int[] mySuccessorArray = myGraph.getSuccessorArray();
-                        System.out.println("Done \n");
+                        printIntArray(mySuccessorArray);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 13:
-                        System.out.println("You've chosen option #13 : Get a representation of the graph as an adjacency matrix\n");
+                    }
+
+                case 13:
+                    if (init) {
+                        System.out.println("You've chosen option #13 : Get a representation of the graph as an adjacency matrix");
                         int[][] myAdjMatrix = myGraph.getAdjMatrix();
-                        System.out.println("Done \n");
+                        printIntMatrix(myAdjMatrix);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 14:
-                        System.out.println("You've chosen option #14 : Show the graph in the DOT format\n");
-                        System.out.println("Done \n");
+                    }
+
+                case 14:
+                    if (init) {
+                        System.out.println("You've chosen option #14 : Show the graph in the DOT format"); //TODO DO IT
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 15:
-                        System.out.println("You've chosen option #15 : Read the graph from a DOT file\n");
-                        System.out.println("Done \n"); //TODO
+                    }
+
+                case 15:
+                    if (init) {
+                        System.out.println("You've chosen option #15 : Read the graph from a DOT file"); //TODO DO IT
+                        System.out.println("Done \n ----------------------------------\n"); //TODO
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 16:
-                        System.out.println("You've chosen option #16 : Export the graph to a DOT file\n");
+                    }
+
+                case 16:
+                    if (init) {
+                        System.out.println("You've chosen option #16 : Export the graph to a DOT file"); //TODO DO IT
                         System.out.println("Please enter the desired location of the DOT file \n");
                         Scanner locationChoiceScan = new Scanner(System.in);
-                        String dotFileLocation = killEdgeScan.nextLine();
+                        String dotFileLocation = locationChoiceScan.nextLine();
                         myGraph.toDotFile(dotFileLocation);
-                        System.out.println("Done \n");
-                        System.out.println("Done \n");
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 17:
+                    }
+
+                case 17:
+                    if (init) {
                         System.out.println("You've chosen option #17 : Reverse the graph");
                         Graf reversedGraf = myGraph.getReverseGraph();
-                        System.out.println("Done \n");
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 18:
+                    }
+
+                case 18:
+                    if (init) {
                         System.out.println("You've chosen option #18 : Compute the transitive closure of the graph");
                         Graf transitiveClosureGraf = myGraph.getTransitiveClosure();
-                        System.out.println("Done \n");
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 19:
+                    }
+
+                case 19:
+                    if (init) {
                         System.out.println("You've chosen option #19: Traverse the graph in DSF");
                         List<Node> dsfList = myGraph.getDFS();
-                        System.out.println("Done \n");
+                        printNodeList(dsfList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 20:
+                    }
+
+                case 20:
+                    if (init) {
                         System.out.println("You've chosen option #20 : Traverse the graph in BSF");
                         List<Node> bsfList = myGraph.getBFS();
-                        System.out.println("Done \n");
+                        printNodeList(bsfList);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
                         break;
 
-                    case 0:
-                        quit = true;
-                        break;
-                    default:
-                        System.out.println("Invalid choice.");
-                }
-            } while (!quit);
-            System.out.println("Bye-bye!");
+                    }
+                case 21:
+                    System.out.println("1. Create an empty graph");
+                    System.out.println("2. Add a node");
+                    System.out.println("3. Remove a node");
+                    System.out.println("4. Add an edge");
+                    System.out.println("5. Remove an edge");
+                    System.out.println("6. Get the list of all nodes");
+                    System.out.println("7. Get successors of a node");
+                    System.out.println("8. Get the list of all edges");
+                    System.out.println("9. Get the list of all edges leaving a node");
+                    System.out.println("10. Get the list of all edges entering a node");
+                    System.out.println("11. Get the list of all edges incident to a node");
+                    System.out.println("12. Get a representation of the graph in the SA (successor array) formalism");
+                    System.out.println("13. Get a representation of the graph as an adjacency matrix");
+                    System.out.println("14. Show the graph in the DOT format");
+                    System.out.println("15. Read the graph from a DOT file");
+                    System.out.println("16. Export the graph to a DOT file");
+                    System.out.println("17. Reverse the graph");
+                    System.out.println("18. Compute the transitive closure of the graph");
+                    System.out.println("19. Traverse the graph in DSF");
+                    System.out.println("20. Traverse the graph in BSF");
+                    System.out.println("21. Print the Menu");
+                    System.out.println("0. Quit this application");
+                    System.out.println("----------------------------------");
+                    break;
+
+                case 0:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (!quit);
+        System.out.println("Bye-bye!");
+    }
+
+    public static Graf initialisation(Graf myGraph) {
+        return myGraph = new Graf();
+
+    }
+
+
+    private static void printNodeList(List<Node> myList) {
+        int size = myList.size();
+        if (size > 0) {
+            System.out.print("[" + myList.get(0) + "; ");
+            for (int i = 1; i < size - 2; ++i) {
+                System.out.print(myList.get(i) + "; ");
+            }
+            System.out.println(myList.get(size - 1) + "]");
+
+        } else {
+            System.out.println("[]");
         }
+    }
+
+    private static void printEdgeList(List<Edge> myList) {
+        int size = myList.size();
+        if (size > 0) {
+            System.out.print("[" + myList.get(0).getFrom() + "->" + myList.get(0).getTo() + "; ");
+            for (int i = 1; i < size - 2; ++i) {
+                System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo() + "; ");
+            }
+            System.out.print(myList.get(size - 1).getFrom() + "->" + myList.get(size - 1).getTo() + "]");
+
+        } else {
+            System.out.println("[]");
+        }
+    }
+
+    private static void printIntArray(int[] myArray) {
+        int size = myArray.length;
+        if (size > 0) {
+            System.out.print("[" + myArray[0] + "; ");
+            for (int i = 1; i < size - 2; ++i) {
+                System.out.print(myArray[i] + "; ");
+            }
+            System.out.println(myArray[size - 1] + "]");
+
+        } else {
+            System.out.println("[]");
+        }
+    }
+
+    private static void printIntMatrix(int[][] myMatrix) {
+        int columns = myMatrix[0].length;
+        int rows = myMatrix.length;
+        if (columns > 0 && rows > 0 && columns == rows) {
+            for (int i = 0; i < rows - 1; ++i) {
+                for (int j = 0; j < rows - 1; ++j) {
+                    System.out.print(myMatrix[i][j] + " ");
+                }
+                System.out.print("\n");
+            }
+
+        } else {
+            System.out.println("[]");
+        }
+
+
     }
 }
