@@ -1,4 +1,9 @@
-
+/**
+ * UndirectedGraf est la classe qui représente les grafs non orientés
+ *
+ * @author AUBRY Clément - THIEBAUD Jérémy
+ * @version 1.0
+ */
 import java.util.*;
 import java.io.PrintWriter;
 import java.io.File;
@@ -9,6 +14,15 @@ import java.io.FileNotFoundException;
 
 public class UndirectedGraf extends Graf {
 
+    /**
+     * Ajoute un edge non orienté dans le graf courant
+     *
+     * @param from
+     *      Le noeud de départ de l'edge à ajouter
+     * @param to
+     *      Le noeud d'arrivée de l'edge à ajouter
+     *
+     */
     public void addEdge(Node from, Node to) {
         addNode(from);
         addNode(to);

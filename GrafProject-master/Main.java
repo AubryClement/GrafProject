@@ -1,9 +1,12 @@
 import java.util.*;
 
-
+/**
+ * Main est la classe qui représente la classe principale
+ *
+ * @author AUBRY Clément - THIEBAUD Jérémy
+ * @version 1.0
+ */
 public class Main {
-
-
 
 
     public static void main(String[] args) {
@@ -233,7 +236,8 @@ public class Main {
 
                 case 14:
                     if (init) {
-                        System.out.println("You've chosen option #14 : Show the graph in the DOT format"); //TODO DO IT
+                        System.out.println("You've chosen option #14 : Show the graph in the DOT format");
+                        myGraph.printDotFormat();
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
@@ -243,23 +247,22 @@ public class Main {
                     }
 
                 case 15:
-                    if (init) {
-                        System.out.println("You've chosen option #15 : Read the graph from a DOT file"); //TODO DO IT
-                        System.out.println("Done \n ----------------------------------\n"); //TODO
-                        break;
-                    } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
-                        break;
 
-                    }
+                    System.out.println("You've chosen option #15 : Read the graph from a DOT file");
+                    Scanner locationChoiceScan = new Scanner(System.in);
+                    String dotFileLocation = locationChoiceScan.nextLine();
+                    myGraph = myGraph.fromDotFile(dotFileLocation);
+                    System.out.println("Done \n ----------------------------------\n");
+                    break;
+
 
                 case 16:
                     if (init) {
-                        System.out.println("You've chosen option #16 : Export the graph to a DOT file"); //TODO DO IT
+                        System.out.println("You've chosen option #16 : Export the graph to a DOT file");
                         System.out.println("Please enter the desired location of the DOT file \n");
-                        Scanner locationChoiceScan = new Scanner(System.in);
-                        String dotFileLocation = locationChoiceScan.nextLine();
-                        myGraph.toDotFile(dotFileLocation);
+                        Scanner locationChoiceScan2 = new Scanner(System.in);
+                        String dotFileLocation2 = locationChoiceScan2.nextLine();
+                        myGraph.toDotFile(dotFileLocation2);
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
@@ -362,20 +365,20 @@ public class Main {
 
     private static void printNodeList(List<Node> myList) {
         System.out.print("[ ");
-        for(int i = 0 ; i < myList.size() ; ++i){
-            if(i == myList.size() - 1){
+        for (int i = 0; i < myList.size(); ++i) {
+            if (i == myList.size() - 1) {
                 System.out.print(myList.get(i));
                 break;
             }
-            System.out.print(myList.get(i)+ " ; ");
+            System.out.print(myList.get(i) + " ; ");
         }
         System.out.println(" ]");
     }
 
     private static void printEdgeList(List<Edge> myList) {
         System.out.print("[ ");
-        for(int i = 0 ; i < myList.size() ; ++i){
-            if(i == myList.size() - 1){
+        for (int i = 0; i < myList.size(); ++i) {
+            if (i == myList.size() - 1) {
                 System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo());
                 break;
             }
@@ -402,8 +405,8 @@ public class Main {
         int columns = myMatrix[0].length;
         int rows = myMatrix.length;
         if (columns > 0 && rows > 0 && columns == rows) {
-            for (int i = 0; i < columns ; ++i) {
-                for (int j = 0; j < rows ; ++j) {
+            for (int i = 0; i < columns; ++i) {
+                for (int j = 0; j < rows; ++j) {
                     System.out.print(myMatrix[i][j] + " ");
                 }
                 System.out.print("\n");
