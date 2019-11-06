@@ -70,6 +70,19 @@ public class Edge implements Comparable<Edge> {
         }
     }
 
+    @Override
+    public boolean equals(Object object){
+        if(this == object){
+            return true;
+        }
+        if(object instanceof Edge) {
+            Edge otherEdge = (Edge) object;
+            return this.getFrom() == otherEdge.getFrom() && this.getTo() == otherEdge.getTo();
+        }
+
+        return false;
+    }
+
     public String toString() {
         return from + " -> " + to;
     }

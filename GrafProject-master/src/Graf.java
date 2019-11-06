@@ -40,10 +40,7 @@ public class Graf {
     }
 
     public void addNode(Node n) {
-        System.out.println(adjList.get(n));
         if (!this.adjList.containsKey(n)) {
-            System.out.println(this.adjList.keySet());
-            System.out.println(n+" : " +this.adjList.containsKey(n));
             this.adjList.put(n, new ArrayList<Node>());
         }
     }
@@ -69,20 +66,8 @@ public class Graf {
     }
 
     public void removeNode(int n) {
-        System.out.println("test");
-        adjList.remove(new Node(n));
-        System.out.println("test3");
-        System.out.println(adjList);
-        for (Map.Entry<Node, List<Node>> entry : adjList.entrySet()) {
-            List<Node> currList = entry.getValue();
-            currList.remove(n);
-        }
-        for (Edge edge : edgeList) {
-            if (edge.getFrom().getIndex() == n || edge.getTo().getIndex() == n) {
-                edgeList.remove(edge);
-            }
-        }
-        System.out.println("test2");
+        Node node = new Node(n);
+        this.removeNode(node);
     }
     //TO DO TEST MA COUILLE
 
@@ -148,7 +133,7 @@ public class Graf {
     public List<Edge> getOutEdges(Node n) {
         List<Edge> res = new ArrayList<Edge>();
         for (Edge edge : edgeList) {
-            if (edge.getFrom() == n) {
+            if (edge.getFrom().equals(n)) {
                 res.add(edge);
             }
         }
@@ -156,19 +141,13 @@ public class Graf {
     }
 
     public List<Edge> getOutEdges(int n) {
-        List<Edge> res = new ArrayList<Edge>();
-        for (Edge edge : edgeList) {
-            if (edge.getFrom().getIndex() == n) {
-                res.add(edge);
-            }
-        }
-        return res;
+        return getOutEdges(new Node(n));
     }
 
     public List<Edge> getInEdges(Node n) {
         List<Edge> res = new ArrayList<Edge>();
         for (Edge edge : edgeList) {
-            if (edge.getTo() == n) {
+            if (edge.getTo().equals(n)) {
                 res.add(edge);
             }
         }
@@ -176,13 +155,7 @@ public class Graf {
     }
 
     public List<Edge> getInEdges(int n) {
-        List<Edge> res = new ArrayList<Edge>();
-        for (Edge edge : edgeList) {
-            if (edge.getFrom().getIndex() == n) {
-                res.add(edge);
-            }
-        }
-        return res;
+        return getInEdges(new Node(n));
     }
 
     public List<Edge> getIncidentEdges(Node n) {
@@ -212,7 +185,7 @@ public class Graf {
     }
 
     public int[] getSuccessorArray() {
-        List<Integer> res = null;
+        List<Integer> res = new ArrayList<Integer>();
         int prev = 0;
         for (Edge edge : edgeList) {
             prev = edge.getFrom().getIndex();
@@ -220,6 +193,7 @@ public class Graf {
             break;
         }
 
+        System.out.println("test");
         for (Edge edge : edgeList) {
             if (prev == edge.getFrom().getIndex()) {
                 res.add(edge.getTo().getIndex());
@@ -246,6 +220,8 @@ public class Graf {
         int[][] res = new int[nodeSize][nodeSize];
         for (int i = 0; i < nodeSize; ++i) {
             for (int j = 0; j < nodeSize; ++j) {
+                System.out.println(listNode.get(i));
+                System.out.println(listNode.get(j));
                 if (edgeList.contains(new Edge(listNode.get(i), listNode.get(j)))) {
                     res[i][j] = 1;
                 } else {
@@ -287,11 +263,8 @@ public class Graf {
         if (getOutEdges(curr) == null) {
             return transGraf;
         }
-        System.out.println("teub");
         List<Edge> currOutEdges = transGraf.getOutEdges(curr);
-        System.out.println("lol"+transGraf.adjList);
         for (Edge edge : currOutEdges) {
-            System.out.println("bite");
             transGraf.addEdge(from, edge.getTo());
             transGraf = addTransitiveClosure(curr, edge.getTo(), transGraf);
         }

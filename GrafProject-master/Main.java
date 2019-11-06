@@ -8,12 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         Graf myGraph = new Graf();
-        myGraph.addNode(4);
-        System.out.println(myGraph.getAllNodes());
-        myGraph.removeNode(4);
-        System.out.println(myGraph.getAllNodes());
-
-        /*Scanner menuChoiceScan = new Scanner(System.in);
+        Scanner menuChoiceScan = new Scanner(System.in);
         // print menu
         System.out.println("1. Create an empty graph");
         System.out.println("2. Add a node");
@@ -277,6 +272,7 @@ public class Main {
                     if (init) {
                         System.out.println("You've chosen option #17 : Reverse the graph");
                         Graf reversedGraf = myGraph.getReverseGraph();
+                        myGraph = reversedGraf;
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
@@ -355,7 +351,7 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
         } while (!quit);
-        System.out.println("Bye-bye!");*/
+        System.out.println("Bye-bye!");
     }
 
     public static Graf initialisation(Graf myGraph) {
@@ -365,31 +361,27 @@ public class Main {
 
 
     private static void printNodeList(List<Node> myList) {
-        int size = myList.size();
-        if (size > 0) {
-            System.out.print("[" + myList.get(0) + ";");
-            for (int i = 1; i < size - 2; ++i) {
-                System.out.print(myList.get(i) + ";");
+        System.out.print("[ ");
+        for(int i = 0 ; i < myList.size() ; ++i){
+            if(i == myList.size() - 1){
+                System.out.print(myList.get(i));
+                break;
             }
-            System.out.println("]");
-
-        } else {
-            System.out.println("[]");
+            System.out.print(myList.get(i)+ " ; ");
         }
+        System.out.println(" ]");
     }
 
     private static void printEdgeList(List<Edge> myList) {
-        int size = myList.size();
-        if (size > 0) {
-            System.out.print("[" + myList.get(0).getFrom() + "->" + myList.get(0).getTo() + ";");
-            for (int i = 1; i < size - 2; ++i) {
-                System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo() + ";");
+        System.out.print("[ ");
+        for(int i = 0 ; i < myList.size() ; ++i){
+            if(i == myList.size() - 1){
+                System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo());
+                break;
             }
-            System.out.print("]");
-
-        } else {
-            System.out.println("[]");
+            System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo() + " ; ");
         }
+        System.out.println(" ]");
     }
 
     private static void printIntArray(int[] myArray) {
@@ -410,8 +402,8 @@ public class Main {
         int columns = myMatrix[0].length;
         int rows = myMatrix.length;
         if (columns > 0 && rows > 0 && columns == rows) {
-            for (int i = 0; i < rows - 1; ++i) {
-                for (int j = 0; j < rows - 1; ++j) {
+            for (int i = 0; i < columns ; ++i) {
+                for (int j = 0; j < rows ; ++j) {
                     System.out.print(myMatrix[i][j] + " ");
                 }
                 System.out.print("\n");
