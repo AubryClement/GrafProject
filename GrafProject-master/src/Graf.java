@@ -69,7 +69,10 @@ public class Graf {
     }
 
     public void removeNode(int n) {
-        adjList.remove(n);
+        System.out.println("test");
+        adjList.remove(new Node(n));
+        System.out.println("test3");
+        System.out.println(adjList);
         for (Map.Entry<Node, List<Node>> entry : adjList.entrySet()) {
             List<Node> currList = entry.getValue();
             currList.remove(n);
@@ -79,6 +82,7 @@ public class Graf {
                 edgeList.remove(edge);
             }
         }
+        System.out.println("test2");
     }
     //TO DO TEST MA COUILLE
 

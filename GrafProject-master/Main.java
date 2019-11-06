@@ -2,9 +2,18 @@ import java.util.*;
 
 
 public class Main {
+
+
+
+
     public static void main(String[] args) {
         Graf myGraph = new Graf();
-        Scanner menuChoiceScan = new Scanner(System.in);
+        myGraph.addNode(4);
+        System.out.println(myGraph.getAllNodes());
+        myGraph.removeNode(4);
+        System.out.println(myGraph.getAllNodes());
+
+        /*Scanner menuChoiceScan = new Scanner(System.in);
         // print menu
         System.out.println("1. Create an empty graph");
         System.out.println("2. Add a node");
@@ -82,7 +91,7 @@ public class Main {
                         Scanner newEdgeScan = new Scanner(System.in);
                         System.out.print("Please enter the first node of the new edge\n");
                         int newEdgeFrom = newEdgeScan.nextInt();
-                        System.out.print("Please enter the first node of the new edge\n");
+                        System.out.print("Please enter the second node of the new edge\n");
                         int newEdgeTo = newEdgeScan.nextInt();
                         myGraph.addEdge(newEdgeFrom, newEdgeTo);
                         System.out.println("Done \n ----------------------------------\n");
@@ -99,7 +108,7 @@ public class Main {
                         Scanner killEdgeScan = new Scanner(System.in);
                         System.out.print("Please enter the first node of the new edge you want to delete\n");
                         int killEdgeFrom = killEdgeScan.nextInt();
-                        System.out.print("Please enter the first node of the new edge you want to delete\n");
+                        System.out.print("Please enter the second node of the new edge you want to delete\n");
                         int killEdgeTo = killEdgeScan.nextInt();
                         myGraph.removeEdge(killEdgeFrom, killEdgeTo);
                         System.out.println("Done \n ----------------------------------\n");
@@ -346,7 +355,7 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
         } while (!quit);
-        System.out.println("Bye-bye!");
+        System.out.println("Bye-bye!");*/
     }
 
     public static Graf initialisation(Graf myGraph) {
@@ -358,11 +367,11 @@ public class Main {
     private static void printNodeList(List<Node> myList) {
         int size = myList.size();
         if (size > 0) {
-            System.out.print("[" + myList.get(0) + "; ");
+            System.out.print("[" + myList.get(0) + ";");
             for (int i = 1; i < size - 2; ++i) {
-                System.out.print(myList.get(i) + "; ");
+                System.out.print(myList.get(i) + ";");
             }
-            System.out.println(myList.get(size - 1) + "]");
+            System.out.println("]");
 
         } else {
             System.out.println("[]");
@@ -372,11 +381,11 @@ public class Main {
     private static void printEdgeList(List<Edge> myList) {
         int size = myList.size();
         if (size > 0) {
-            System.out.print("[" + myList.get(0).getFrom() + "->" + myList.get(0).getTo() + "; ");
+            System.out.print("[" + myList.get(0).getFrom() + "->" + myList.get(0).getTo() + ";");
             for (int i = 1; i < size - 2; ++i) {
-                System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo() + "; ");
+                System.out.print(myList.get(i).getFrom() + "->" + myList.get(i).getTo() + ";");
             }
-            System.out.print(myList.get(size - 1).getFrom() + "->" + myList.get(size - 1).getTo() + "]");
+            System.out.print("]");
 
         } else {
             System.out.println("[]");
