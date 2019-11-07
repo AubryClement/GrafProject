@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * Main est la classe qui représente la classe principale
+ * Main is the class which represents the main class of the application
  *
  * @author AUBRY Clément - THIEBAUD Jérémy
  * @version 1.0
@@ -10,7 +10,7 @@ public class Main {
 
 
     /**
-     * Gère et affiche le menu utilisateur
+     * Display the menu of the application
      */
     public static void main(String[] args) {
         Graf myGraph = new Graf();
@@ -400,9 +400,10 @@ public class Main {
 
 
     /**
-     * Affiche une liste de noeuds
+     * Print a list of nodes
      *
-     * @param myList liste de noeuds à afficher
+     * @param myList
+     *      The list to print
      */
     private static void printNodeList(List<Node> myList) {
         System.out.print("[ ");
@@ -418,9 +419,10 @@ public class Main {
 
 
     /**
-     * Affiche une liste d'edges
+     * Print a list of edges
      *
-     * @param myList liste d'edges à afficher
+     * @param myList
+     *      The list to print
      */
     private static void printEdgeList(List<Edge> myList) {
         System.out.print("[ ");
@@ -435,9 +437,10 @@ public class Main {
     }
 
     /**
-     * Affiche un tableau d'entiers
+     * Print an array of int
      *
-     * @param myArray tableau d'entiers à afficher
+     * @param myArray
+     *      The array to print
      */
     private static void printIntArray(int[] myArray) {
         int size = myArray.length;
@@ -454,9 +457,10 @@ public class Main {
     }
 
     /**
-     * Affiche une matrice d'entiers
+     * Print an matrix of int
      *
-     * @param myArray matrice d'entiers à afficher
+     * @param myArray
+     *      The matrix to print
      */
     private static void printIntMatrix(int[][] myMatrix) {
         int columns = myMatrix[0].length;
