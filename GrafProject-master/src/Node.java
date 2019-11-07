@@ -1,5 +1,5 @@
 /**
- * Node est la classe qui représente les noeuds d'un graf
+ * Node is the class which represents the nodes of a graf
  *
  * @author AUBRY Clément - THIEBAUD Jérémy
  * @version 1.0
