@@ -1,3 +1,5 @@
+
+
 /**
  * Node is the class which represents the nodes of a graf
  *
@@ -5,18 +7,15 @@
  * @version 1.0
  */
 
-public class Node implements Comparable<Node>{
+public class Node implements Comparable<Node> {
 
     private int index;
 
     /**
      * Node constructor
      *
-     * @param index
-     *      Index of the node to create
-     *
-     *@return
-     *      An instancy of Node
+     * @param index Index of the node to create
+     * @return An instancy of Node
      */
     public Node(int index) {
         this.index = index;
@@ -25,8 +24,7 @@ public class Node implements Comparable<Node>{
     /**
      * Give the index of the current node
      *
-     * @return
-     *      The index of the node
+     * @return The index of the node
      */
     public int getIndex() {
         return index;
@@ -35,8 +33,7 @@ public class Node implements Comparable<Node>{
     /**
      * Give the index of the current node in printable format
      *
-     * @return
-     *      The index of the node in printable format
+     * @return The index of the node in printable format
      */
     public String toString() {
         return String.valueOf(index);
@@ -46,18 +43,15 @@ public class Node implements Comparable<Node>{
     /**
      * Test if two nodes are equal
      *
-     * @param object
-     *      The node to test with the current one
-     *
-     * @return
-     *      True if equals, False on the other way
+     * @param object The node to test with the current one
+     * @return True if equals, False on the other way
      */
     @Override
-    public boolean equals(Object object){
-        if(this == object){
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if(object instanceof Node) {
+        if (object instanceof Node) {
             Node otherNode = (Node) object;
             return this.index == otherNode.getIndex();
         }
@@ -69,24 +63,20 @@ public class Node implements Comparable<Node>{
     /**
      * Compare the current node with another node
      *
-     * @param otherNode
-     *      The node to compare with the current one
-     *
-     * @return
-     *      True if equals, False on the other way
+     * @param otherNode The node to compare with the current one
+     * @return True if equals, False on the other way
      */
-    public int compareTo(Node otherNode){
+    public int compareTo(Node otherNode) {
         return this.index - otherNode.getIndex();
     }
 
     /**
      * Give the index of the current node
      *
-     * @return
-     *      The index of the current node
+     * @return The index of the current node
      */
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return this.index;
     }
 }

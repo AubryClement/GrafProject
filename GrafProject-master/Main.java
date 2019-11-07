@@ -16,7 +16,8 @@ public class Main {
         Graf myGraph = new Graf();
         Scanner menuChoiceScan = new Scanner(System.in);
         // print menu
-        System.out.println("1. Create an empty graph");
+        System.out.println("-----------------MENU----------------");
+        System.out.println("1. Create an empty graph or reset the current one");
         System.out.println("2. Add a node");
         System.out.println("3. Remove a node");
         System.out.println("4. Add an edge");
@@ -51,7 +52,7 @@ public class Main {
             switch (menuItem) {
                 case 1:
 
-                    System.out.println("You've chosen option #1 : Create an empty graph");
+                    System.out.println("You've chosen option #1 : Create an empty graph or reset the current one");
                     init = true;
                     myGraph = new Graf();
                     System.out.println("Done \n ----------------------------------\n");
@@ -67,7 +68,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -82,7 +83,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -99,7 +100,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -116,7 +117,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -129,7 +130,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -145,7 +146,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -158,7 +159,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -166,7 +167,7 @@ public class Main {
 
                 case 9:
                     if (init) {
-                        System.out.println("You've chosen option #9 : Get the list of all edges leaving a node");
+                        System.out.println("You've chosen option #9 : Get the list of all edges leaving a node ");
                         Scanner nodeOutScan = new Scanner(System.in);
                         System.out.print("Please enter the index of the node\n");
                         int nodeOutIndex = nodeOutScan.nextInt();
@@ -175,7 +176,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -191,7 +192,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -207,7 +208,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -220,7 +221,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -233,7 +234,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -245,7 +246,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -270,7 +271,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -283,7 +284,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -295,7 +296,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -308,7 +309,7 @@ public class Main {
                         System.out.println("Done \n ----------------------------------\n");
                         break;
                     } else {
-                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        System.out.println("Error: Please ask for the creation of an empty graph first (option #1 in the menu)");
                         break;
 
                     }
@@ -358,7 +359,8 @@ public class Main {
                     }
 
                 case 22:
-                    System.out.println("1. Create an empty graph");
+                    System.out.println("-----------------MENU----------------");
+                    System.out.println("1. Create an empty graph or reset the current one");
                     System.out.println("2. Add a node");
                     System.out.println("3. Remove a node");
                     System.out.println("4. Add an edge");
@@ -378,7 +380,8 @@ public class Main {
                     System.out.println("18. Compute the transitive closure of the graph");
                     System.out.println("19. Traverse the graph in DSF");
                     System.out.println("20. Traverse the graph in BSF");
-                    System.out.println("21. Print the Menu");
+                    System.out.println("21. Compute a random graf");
+                    System.out.println("22. Print the Menu");
                     System.out.println("0. Quit this application");
                     System.out.println("----------------------------------");
                     break;
@@ -402,8 +405,7 @@ public class Main {
     /**
      * Print a list of nodes
      *
-     * @param myList
-     *      The list to print
+     * @param myList The list to print
      */
     private static void printNodeList(List<Node> myList) {
         System.out.print("[ ");
@@ -421,8 +423,7 @@ public class Main {
     /**
      * Print a list of edges
      *
-     * @param myList
-     *      The list to print
+     * @param myList The list to print
      */
     private static void printEdgeList(List<Edge> myList) {
         System.out.print("[ ");
@@ -439,8 +440,7 @@ public class Main {
     /**
      * Print an array of int
      *
-     * @param myArray
-     *      The array to print
+     * @param myArray The array to print
      */
     private static void printIntArray(int[] myArray) {
         int size = myArray.length;
@@ -459,8 +459,7 @@ public class Main {
     /**
      * Print an matrix of int
      *
-     * @param myArray
-     *      The matrix to print
+     * @param myMatrix The matrix to print
      */
     private static void printIntMatrix(int[][] myMatrix) {
         int columns = myMatrix[0].length;
