@@ -9,6 +9,9 @@ import java.util.*;
 public class Main {
 
 
+    /**
+     * Gère et affiche le menu utilisateur
+     */
     public static void main(String[] args) {
         Graf myGraph = new Graf();
         Scanner menuChoiceScan = new Scanner(System.in);
@@ -33,7 +36,8 @@ public class Main {
         System.out.println("18. Compute the transitive closure of the graph");
         System.out.println("19. Traverse the graph in DSF");
         System.out.println("20. Traverse the graph in BSF");
-        System.out.println("21. Print the Menu");
+        System.out.println("21. Compute a random graf");
+        System.out.println("22. Print the Menu");
         System.out.println("0. Quit this application");
         System.out.println("----------------------------------");
 
@@ -321,7 +325,39 @@ public class Main {
                         break;
 
                     }
+
+
                 case 21:
+                    if (init) {
+                        System.out.println("You've chosen option #21: Compute a random graf");
+
+                        Scanner minNodeScan = new Scanner(System.in);
+                        System.out.print("Please enter the min amount of nodes you want\n");
+                        int minOfNodes = minNodeScan.nextInt();
+
+                        Scanner maxNodeScan = new Scanner(System.in);
+                        System.out.print("Please enter the max amount of nodes you want\n");
+                        int maxOfNodes = maxNodeScan.nextInt();
+
+                        Scanner minEdgeScan = new Scanner(System.in);
+                        System.out.print("Please enter the min amount of edges you want\n");
+                        int minOfEdges = minEdgeScan.nextInt();
+
+                        Scanner maxEdgeScan = new Scanner(System.in);
+                        System.out.print("Please enter the max amount of edges you want\n");
+                        int maxOfEdges = maxEdgeScan.nextInt();
+
+
+                        myGraph = myGraph.generateRandomGraf(minOfNodes, maxOfNodes, minOfEdges, maxOfEdges);
+                        System.out.println("Done \n ----------------------------------\n");
+                        break;
+                    } else {
+                        System.out.println("Error: Please ask for the creation of an empty graph first");
+                        break;
+
+                    }
+
+                case 22:
                     System.out.println("1. Create an empty graph");
                     System.out.println("2. Add a node");
                     System.out.println("3. Remove a node");
@@ -363,6 +399,11 @@ public class Main {
     }
 
 
+    /**
+     * Affiche une liste de noeuds
+     *
+     * @param myList liste de noeuds à afficher
+     */
     private static void printNodeList(List<Node> myList) {
         System.out.print("[ ");
         for (int i = 0; i < myList.size(); ++i) {
@@ -375,6 +416,12 @@ public class Main {
         System.out.println(" ]");
     }
 
+
+    /**
+     * Affiche une liste d'edges
+     *
+     * @param myList liste d'edges à afficher
+     */
     private static void printEdgeList(List<Edge> myList) {
         System.out.print("[ ");
         for (int i = 0; i < myList.size(); ++i) {
@@ -387,6 +434,11 @@ public class Main {
         System.out.println(" ]");
     }
 
+    /**
+     * Affiche un tableau d'entiers
+     *
+     * @param myArray tableau d'entiers à afficher
+     */
     private static void printIntArray(int[] myArray) {
         int size = myArray.length;
         if (size > 0) {
@@ -401,21 +453,24 @@ public class Main {
         }
     }
 
+    /**
+     * Affiche une matrice d'entiers
+     *
+     * @param myArray matrice d'entiers à afficher
+     */
     private static void printIntMatrix(int[][] myMatrix) {
         int columns = myMatrix[0].length;
         int rows = myMatrix.length;
         if (columns > 0 && rows > 0 && columns == rows) {
-            for (int i = 0; i < columns; ++i) {
-                for (int j = 0; j < rows; ++j) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
                     System.out.print(myMatrix[i][j] + " ");
                 }
-                System.out.print("\n");
+                System.out.println(" ");
             }
 
         } else {
             System.out.println("[]");
         }
-
-
     }
 }

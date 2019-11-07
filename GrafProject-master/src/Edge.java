@@ -1,6 +1,6 @@
 
 /**
- * Edge est la classe qui représente les edges d'un graph
+ * Edge is the class which represents the edges of a graf
  *
  * @author AUBRY Clément - THIEBAUD Jérémy
  * @version 1.0
@@ -13,17 +13,18 @@ public class Edge implements Comparable<Edge> {
 
 
     /**
-     * Constructeur d'un Edge
+     * Edge constructor
      *
      * @param from
-     *      Le node de départ de l'edge
+     *      Start node of the edge
      * @param to
-     *      Le node d'arrivée de l'edge
+     *       End node of the edge
      * @param  weight
-     *      le poids de l'edge
+     *      Weight of the edge
      * @param label
-     *      le label de l'edge
-     * @return une instance de Edge
+     *      label of the edge
+     *
+     * @return An instancy of Edge
      */
     public Edge(Node from, Node to, int weight, String label) {
         this.from = from;
@@ -31,49 +32,50 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Constructeur d'un Edge
+     * Edge constructor
      *
      * @param from
-     *      Le node de départ de l'edge
+     *      Start node of the edge
      * @param to
-     *      Le node d'arrivée de l'edge
-     * @return une instance de Edge
+     *     End node of the edge
+     *
+     * @return An instancy of Edge
      */
     public Edge(Node from, Node to) {
         this(from, to, 0, "");
     }
 
     /**
-     * Donne le noeud de départ d'un edge
+     * Give the start node of the current edge
      *
-     * @return le noeud désiré
+     * @return The wanted node
      */
     public Node getFrom() {
         return from;
     }
 
     /**
-     * Donne le noeud d'arrivée d'un edge
+     * Give the end node of the current edge
      *
-     * @return le noeud désiré
+     * @return The wanted node
      */
     public Node getTo() {
         return to;
     }
 
     /**
-     * Donne le poids de départ d'un edge
+     * Give the weight of the current edge
      *
-     * @return le poids
+     * @return The weight
      */
     public int getWeight() {
         return weight;
     }
 
     /**
-     * Donne le label de départ d'un edge
+     * Give the label of the current edge
      *
-     * @return le label
+     * @return The label
      *
      */
     public String getLabel() {
@@ -81,30 +83,30 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Définit le point de départ de l'edge courant
+     * Set the start node of the current edge
      *
      * @param from
-     *      Le node de départ voulu pour l'edge courant
+     *      The wanted start node for the current edge
      */
     public void setFrom(Node from) {
         this.from = from;
     }
 
     /**
-     * Définit le point d'arrivée de l'edge courant
+     * Set the end node of the current edge
      *
      * @param to
-     *      Le node d'arrivée voulu pour l'edge courant
+     *      The wanted end node for the current edge
      */
     public void setTo(Node to) {
         this.to = to;
     }
 
     /**
-     * Définit le poids de l'edge courant
+     * Set the weight of the current edge
      *
      * @param weight
-     *      Le poids voulu pour l'edge courant
+     *      The wanted weight for the current edge
      */
     public void setWeight(int weight) {
         this.weight = weight;
@@ -112,10 +114,10 @@ public class Edge implements Comparable<Edge> {
 
 
     /**
-     * Définit le label de l'edge courant
+     * Set the label of the current edge
      *
      * @param label
-     *      Le label voulu pour l'edge courant
+     *      The wanted label for the current edge
      */
     public void setLabel(String label) {
         this.label = label;
@@ -123,12 +125,12 @@ public class Edge implements Comparable<Edge> {
 
 
     /**
-     * Compare l'edge courant avec un autre edge
+     * Compare the current edge with another edge
      *
      * @param otherEdge
-     *      L'edge à comparer avec l'edge courant
+     *      The edge to compare with the current one
      *
-     * @return 0 si égaux, -1 si l'edge courant est supérieur, -1 si l'edge courant est inférieur
+     * @return 0 if equals, -1 if the current edge is inferior, 1 if the current edge is superior
      */
     public int compareTo(Edge otherEdge) {  //A TESTER et a COMPILER et a VOTER vive Chirac
         int otherFrom = otherEdge.getFrom().getIndex();
@@ -155,12 +157,12 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Teste l'égualité entre deux edges
+     * Test if two edges are equal
      *
      * @param object
-     *      L'edge à comparer avec l'edge courant
+     *      The edge to test with the current one
      *
-     * @return True si égaux, False sinon
+     * @return True if equals, False on the other way
      */
     @Override
     public boolean equals(Object object) {
@@ -176,10 +178,10 @@ public class Edge implements Comparable<Edge> {
     }
 
     /**
-     * Renvoie un format affichable de l'edge courant
+     * Give the printable format of an edge
      *
      *
-     * @return la chaîne de caractères correspondant à l'edge courant
+     * @return The string of the edge
      */
     public String toString() {
         return from + " -> " + to;

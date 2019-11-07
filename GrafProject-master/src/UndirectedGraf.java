@@ -15,12 +15,12 @@ import java.io.FileNotFoundException;
 public class UndirectedGraf extends Graf {
 
     /**
-     * Ajoute un edge non orienté dans le graf courant
+     * Add an undirected edge in the current graf
      *
      * @param from
-     *      Le noeud de départ de l'edge à ajouter
+     *      Start node of the edge to add
      * @param to
-     *      Le noeud d'arrivée de l'edge à ajouter
+     *      End node of the edge to add
      *
      */
     public void addEdge(Node from, Node to) {

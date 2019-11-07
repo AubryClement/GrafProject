@@ -10,30 +10,33 @@ public class Node implements Comparable<Node>{
     private int index;
 
     /**
-     * Constructeur d'un noeud
+     * Node constructor
      *
      * @param index
-     *      L'index du noeud à créér
+     *      Index of the node to create
      *
-     *@return Une instance de Node
+     *@return
+     *      An instancy of Node
      */
     public Node(int index) {
         this.index = index;
     }
 
     /**
-     * Donne l'index du noeud courant
+     * Give the index of the current node
      *
-     * @return L'index du noeud courant
+     * @return
+     *      The index of the node
      */
     public int getIndex() {
         return index;
     }
 
     /**
-     * Donne l'index du noeud courant sous forme d'une String
+     * Give the index of the current node in printable format
      *
-     * @return L'index du noeud courant sous forme d'une String
+     * @return
+     *      The index of the node in printable format
      */
     public String toString() {
         return String.valueOf(index);
@@ -41,12 +44,13 @@ public class Node implements Comparable<Node>{
 
 
     /**
-     * Teste l'égualité entre deux noeuds
+     * Test if two nodes are equal
      *
      * @param object
-     *      Le noeud à comparer avec le noeud courant
+     *      The node to test with the current one
      *
-     * @return 0 si égaux, -1 si le noeud courant est supérieur, -1 si le noeud courant est inférieur
+     * @return
+     *      True if equals, False on the other way
      */
     @Override
     public boolean equals(Object object){
@@ -63,20 +67,23 @@ public class Node implements Comparable<Node>{
 
 
     /**
-     * Compare le noeud courant avec un autre noeud
-     * @param otherNode
-     *      Le noeud à comparer avec le noeud courant
+     * Compare the current node with another node
      *
-     * @return True si égaux, False sinon
+     * @param otherNode
+     *      The node to compare with the current one
+     *
+     * @return
+     *      True if equals, False on the other way
      */
     public int compareTo(Node otherNode){
         return this.index - otherNode.getIndex();
     }
 
     /**
-     * Donne l'index du noeud courant
+     * Give the index of the current node
      *
-     * @return L'index du noeud courant
+     * @return
+     *      The index of the current node
      */
     @Override
     public int hashCode(){

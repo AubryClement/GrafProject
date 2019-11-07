@@ -14,7 +14,7 @@ import java.io.FileReader;
 
 
 /**
- * Graf est la classe qui représente les objets de type Graf
+ * Graf is the class which represents the Graf
  *
  * @author AUBRY Clément - THIEBAUD Jérémy
  * @version 1.0
@@ -26,9 +26,9 @@ public class Graf {
     List<Edge> edgeList;
 
     /**
-     * Constructeur d'un Graf
+     * Graf constructor
      *
-     *@return une instance de Graf
+     * @return An instancy of Graf
      */
     public Graf() {
         this.adjList = new HashMap<Node, List<Node>>();
@@ -36,15 +36,14 @@ public class Graf {
     }
 
     /**
-     * Constructeur d'un Graf
+     * Graf constructor
      *
      * @param adjList
-     *      La liste des nodes
+     *      The list of the nodes
      * @param edgeList
-     *      Le liste des edges
-     *      le poids de l'edge
+     *      The list of the edges
      *
-     * @return une instance de Graf
+     * @return An instancy of Graf
      */
     public Graf(HashMap<Node, List<Node>> adjList, List<Edge> edgeList) {
         this.adjList = adjList;
@@ -52,12 +51,12 @@ public class Graf {
     }
 
     /**
-     * Constructeur d'un Graf
+     * Graf constructor
      *
      * @param succesorArray
-     *      Le tableau des successeurs
+     *      The array of the successors
      *
-     * @return une instance de Graf
+     * @return An instancy of Graf
      */
     public Graf(int... succesorArray) {
         this();
@@ -77,11 +76,10 @@ public class Graf {
     }
 
     /**
-     * Ajoute un noeud dans le graf courant
+     * Add a node in the current graf
      *
      * @param n
-     *      Le noeud à ajouter
-     *
+     *      The node to add
      */
     public void addNode(Node n) {
         if (!this.adjList.containsKey(n)) {
@@ -90,11 +88,10 @@ public class Graf {
     }
 
     /**
-     * Ajoute un noeud dans le graf courant
+     * Add a node in the current graf
      *
      * @param n
-     *      Le noeud à ajouter
-     *
+     *      The node to add
      */
     public void addNode(int n) {
         Node node = new Node(n);
@@ -102,11 +99,10 @@ public class Graf {
     }
 
     /**
-     * Supprime un noeud dans le graf courant
+     * Delete a node in the current graf
      *
      * @param n
-     *      Le noeud à supprimer
-     *
+     *      The node to delete
      */
     public void removeNode(Node n) {
         adjList.remove(n);
@@ -124,11 +120,10 @@ public class Graf {
     }
 
     /**
-     * Supprime un noeud dans le graf courant
+     * Delete a node in the current graf
      *
      * @param n
-     *      Le noeud à supprimer
-     *
+     *      The node to delete
      */
     public void removeNode(int n) {
         Node node = new Node(n);
@@ -137,13 +132,12 @@ public class Graf {
 
 
     /**
-     * Ajoute un edge dans le graf courant
+     * Add an edge in the current graf
      *
      * @param from
-     *      Le noeud de départ de l'edge à ajouter
+     *      The start node of the edge to add
      * @param to
-     *      Le noeud d'arrivée de l'edge à ajouter
-     *
+     *      The end node of the edge to add
      */
     public void addEdge(Node from, Node to) {
         addNode(from);
@@ -161,13 +155,12 @@ public class Graf {
     }
 
     /**
-     * Ajoute un edge dans le graf courant
+     * Add an edge in the current graf
      *
      * @param from
-     *      Le noeud de départ de l'edge à ajouter
+     *      The start node of the edge to add
      * @param to
-     *      Le noeud d'arrivée de l'edge à ajouter
-     *
+     *       The end node of the edge to add
      */
     public void addEdge(int from, int to) {
         Node currFrom = new Node(from);
@@ -176,13 +169,12 @@ public class Graf {
     }
 
     /**
-     * Supprime un edge dans le graf courant
+     * Delete an edge in the current graf
      *
      * @param from
-     *      Le noeud de départ de l'edge à supprimer
+     *      The start node of the edge to add
      * @param to
-     *      Le noeud d'arrivée de l'edge à supprimer
-     *
+     *      The end node of the edge to add
      */
     public void removeEdge(Node from, Node to) {
         Edge currEdge = new Edge(from, to);
@@ -190,24 +182,22 @@ public class Graf {
     }
 
     /**
-     * Ajoute un edge dans le graf courant
+     * Delete an edge in the current graf
      *
      * @param e
-     *      L'edge à supprimer
-     *
+     *      The edge to delete
      */
     public void removeEdge(Edge e) {
         edgeList.remove(e);
     }
 
     /**
-     * Ajoute un edge dans le graf courant
+     * Delete an edge in the current graf
      *
      * @param from
-     *      Le noeud de départ de l'edge à ajouter
+     *      The start node of the edge to delete
      * @param to
-     *      Le noeud d'arrivée de l'edge à ajouter
-     *
+     *      The end node of the edge to delete
      */
     public void removeEdge(int from, int to) {
         Node currFrom = new Node(from);
@@ -216,12 +206,13 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des successeurs d'un noeud
+     * Give the list of the successors of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les successeurs
+     *      The source node of the list
      *
-     * @return La liste des successeur du noeud n
+     * @return
+     *      The list of the successors of the node n
      */
     public List<Node> getSuccessors(Node n) {
         List<Node> res = new ArrayList<Node>();
@@ -234,12 +225,13 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des successeurs d'un noeud
+     * Give the list of the successors of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les successeurs
+     *      The source node of the list
      *
-     * @return La liste des successeur du noeud n
+     * @return
+     *      The list of the successors of the node n
      */
     public List<Node> getSuccessors(int n) {
         List<Node> res = new ArrayList<Node>();
@@ -252,12 +244,13 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des edges sortants d'un noeud
+     * Give the list of the outgoing edges of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds sortants
+     *      The source node of the list
      *
-     * @return La liste des edges sortants du noeud n
+     * @return
+     *      The list of the outgoing edges of the node n
      */
     public List<Edge> getOutEdges(Node n) {
         List<Edge> res = new ArrayList<Edge>();
@@ -270,24 +263,25 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des edges sortants d'un noeud
+     * Give the list of the outgoing edges of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds sortants
-     *
-     * @return La liste des edges sortants du noeud n
+     *      The source node of the list
+     * @return
+     *      The list of the outgoing edges of the node n
      */
     public List<Edge> getOutEdges(int n) {
         return getOutEdges(new Node(n));
     }
 
     /**
-     * Donne la liste des edges entrants d'un noeud
+     * Give the list of the ingoing edges of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds entrants
+     *      The source node of the list
      *
-     * @return La liste des edges entrants du noeud n
+     * @return
+     *      The list of the ingoing edges of the node n
      */
     public List<Edge> getInEdges(Node n) {
         List<Edge> res = new ArrayList<Edge>();
@@ -300,24 +294,26 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des edges entrants d'un noeud
+     * Give the list of the ingoing edges of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds entrants
+     *      The source node of the list
      *
-     * @return La liste des edges entrants du noeud n
+     * @return
+     *      The list of the ingoing edges of the node n
      */
     public List<Edge> getInEdges(int n) {
         return getInEdges(new Node(n));
     }
 
     /**
-     * Donne la liste des edges entrants ou sortants d'un noeud
+     * Give the list of the ingoing edges of a node
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds entrants ou sortants
+     *      The source node of the list
      *
-     * @return La liste des edges entrants ou sortants du noeud n
+     * @return
+     *      The list of the ingoing edges of the node n
      */
     public List<Edge> getIncidentEdges(Node n) {
         List<Edge> res = new ArrayList<Edge>();
@@ -327,12 +323,13 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des edges entrants ou sortants d'un noeud
+     * The list of the ingoing or outgoing edges of the node n
      *
      * @param n
-     *      Le noeud dont on souhaite les noeuds entrants ou sortants
+     *      The source node of the list
      *
-     * @return La liste des edges entrants ou sortants du noeud n
+     * @return
+     *      The list of the ingoing or outgoing edges of the node n
      */
     public List<Edge> getIncidentEdges(int n) {
         List<Edge> res = new ArrayList<Edge>();
@@ -342,10 +339,10 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des noeuds du graf courant
+     * Give the list of the nodes of the current graf
      *
-     *
-     * @return La liste des noeuds du graf courant
+     * @return
+     *      The list of the nodes of the current graf
      */
     public List<Node> getAllNodes() {
         List<Node> nodeList = new ArrayList<Node>();
@@ -356,20 +353,20 @@ public class Graf {
     }
 
     /**
-     * Donne la liste des edges du graf courant
+     * Give the list of the edges of the current graf
      *
-     *
-     * @return La liste des edges du graf courant
+     * @return
+     *      The list of the edges of the current graf
      */
-  public List<Edge> getAllEdges() {
+    public List<Edge> getAllEdges() {
         return this.edgeList;
     }
 
     /**
-     * Donne le tableau des successeurs du graf courant
+     * Give the successors array of the graf
      *
-     *
-     * @return Le tableau des successeurs
+     * @return
+     *      The successors array
      */
     public int[] getSuccessorArray() {
         List<Integer> res = new ArrayList<Integer>();
@@ -402,10 +399,9 @@ public class Graf {
     }
 
     /**
-     * Donne la matrice adjacente du graf courant
+     * Give the adjency matrix of the current graf
      *
-     *
-     * @return La matrice adjacente
+     * @return The adjency matrix
      */
     public int[][] getAdjMatrix() {
         List<Node> listNode = getAllNodes();
@@ -413,23 +409,29 @@ public class Graf {
         int[][] res = new int[nodeSize][nodeSize];
         for (int i = 0; i < nodeSize; ++i) {
             for (int j = 0; j < nodeSize; ++j) {
-                System.out.println(listNode.get(i));
-                System.out.println(listNode.get(j));
-                if (edgeList.contains(new Edge(listNode.get(i), listNode.get(j)))) {
-                    res[i][j] = 1;
-                } else {
-                    res[i][j] = 0;
+                for (Edge e:edgeList
+                     ) {
+                    Edge tampEdge=new Edge(listNode.get(i), listNode.get(j));
+                    if(e.equals(tampEdge)){
+                        System.out.println("lol oui");
+                        res[i][j] = 1;
+                    }
+                    else{
+                        System.out.println("lol nan");
+                        res[i][j] = 0;
+                    }
                 }
+
             }
         }
         return res;
     }
 
     /**
-     * Donne la version inversée du graf courant
+     * Give the reverse graf
      *
-     *
-     * @return Le graf inversé du graf courant
+     * @return
+     *      The reverse graf
      */
     public Graf getReverseGraph() {
 
@@ -442,10 +444,10 @@ public class Graf {
     }
 
     /**
-     * Donne la fermeture transitive du graf courant
+     * Give the transitive closure
      *
-     *
-     * @return La fermeture transitive du graf courant
+     * @return
+     *      The transitive closure
      */
     public Graf getTransitiveClosure() {
 
@@ -461,18 +463,16 @@ public class Graf {
     }
 
     /**
-     * Ajoute l'inverse d'un edge à une liste d'edges donnée
+     * Give thr reverse version of an edge to a given list
      *
      * @param from
-     *      Le noeud de départ de l'edge à inverser
-     *
+     *      The start node of the edge to reverse
      * @param curr
-     *      Le noeud d'arrivée de l'edge à inverser
-     *
+     *      The end node of the edge to reverse
      * @param transGraf
-     *      La liste à laquelle il faut ajouter l'edge inversé
-     *
-     * @return La liste des edges modifiée
+     *      The source list to complete
+     * @return
+     *      The completed list
      */
     public Graf addTransitiveClosure(Node from, Node curr, Graf transGraf) {
         if (curr == from) {
@@ -492,10 +492,9 @@ public class Graf {
     }
 
     /**
-     * Donne la DFS du graf courant
+     * Give the DFS of the current graf
      *
-     *
-     * @return La DFS du graf courant
+     * @return The DFS of the graf
      */
     public List<Node> getDFS() {
         Node firstNode = this.getAllNodes().get(0);
@@ -513,16 +512,14 @@ public class Graf {
     }
 
     /**
-     * Donne une partie de la DFS du graf courant (version réccursive)
+     * Give a part of the DFS of the current graf (reccursive version)
      *
-     *@param currList
-     *      Liste des noeuds à completer durant la DFS
-     *
-     *@param currNode
-     *      Noeud de départ pour la DFS
-     *
-     *
-     * @return La liste completée de la DFS du graf courant
+     * @param currList
+     *      The list to complete
+     * @param currNode
+     *      Start point of the DFS
+     * @return
+     *      The completed list of the DFS
      */
     public List<Node> getDFSRec(List<Node> currList, Node currNode) {
         currList.add(currNode);
@@ -538,10 +535,9 @@ public class Graf {
     }
 
     /**
-     * Donne la BFS du graf courant
+     * Give the BFS of the current graf
      *
-     *
-     * @return La BFS du graf courant
+     * @return The BFS of the graf
      */
     public List<Node> getBFS() {
         Node firstNode = this.getAllNodes().get(0);
@@ -565,16 +561,14 @@ public class Graf {
     }
 
     /**
-     * Donne une partie de la BFS du graf courant (version réccursive)
+     * Give a part of the BFS of the current graf (reccursive version)
      *
-     *@param currList
-     *      Liste des noeuds à completer durant la BFS
-     *
-     *@param currNode
-     *      Noeud de départ pour la BFS
-     *
-     *
-     * @return La liste completée de la BFS du graf courant
+     * @param currList
+     *      The list to complete
+     * @param currNode
+     *      Start point of the BFS
+     * @return
+     *      The completed list of the BFS
      */
     public List<Node> getBFSRec(List<Node> currList, Node currNode) {
         List<Edge> currEdge = new ArrayList<Edge>();
@@ -595,10 +589,10 @@ public class Graf {
     }
 
     /**
-     * Renvoie le graf sous format textuel
+     * Give the printable format of the current graf
      *
-     *
-     * @return Le graf sous format textuel
+     * @return
+     *      The printable format of the graf
      */
     public String toDotString() {
         String res = "";
@@ -609,7 +603,7 @@ public class Graf {
     }
 
     /**
-     * Enregistre le graf sous format DOT
+     * Register the current graf in DOT Format
      *
      *
      */
@@ -626,10 +620,10 @@ public class Graf {
     }
 
     /**
-     * Enregistre le graf sous format DOT
+     *  Register the current graf in DOT Format
      *
      * @param path
-     *      Le chemin de l'emplacement pour la sauvegarde du fichier DOT généré
+     *      The path where to save the DOT file
      */
     public void toDotFile(String path) {
         PrintWriter writer1 = null;
@@ -644,26 +638,26 @@ public class Graf {
     }
 
     /**
-     * Affiche le graf sous format DOT en textuel
+     * Print the DOT format of the current graf
      *
      *
      */
-    public void printDotFormat(){
-        String format="digraph Graf{" + this.toDotString() + "}";
+    public void printDotFormat() {
+        String format = "digraph Graf{" + this.toDotString() + "}";
         System.out.println(format);
     }
 
     /**
-     * Convertit un fichier en format DOT en objet Graf
+     * Import a graf from a DOT file
      *
-     *@param path
-     *      Chemin du fichier DOT à convertir
+     * @param path
+     *      Path of the DOT file
      *
-     *
-     * @return Le graf généré à partir du fichier
+     * @return
+     *      The computed graf
      */
     public static Graf fromDotFile(String path) {
-        List<String> listDot = new  ArrayList<>();
+        List<String> listDot = new ArrayList<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
@@ -694,14 +688,14 @@ public class Graf {
                 }
             }
             String[] arrOfStr = listDot.get(i).split(" ");
-            if (i != 0 && i != nbLineDotFile-1) {
+            if (i != 0 && i != nbLineDotFile - 1) {
                 if (arrOfStr.length < 3) {
-                    String [] arrOfStrNode = arrOfStr[1].split(";");
+                    String[] arrOfStrNode = arrOfStr[1].split(";");
                     Node n1 = new Node(Integer.parseInt(arrOfStrNode[0]));
                     g.addNode(n1);
                 }
                 if (arrOfStr.length >= 3) {
-                    String [] arrOfStrEdge = arrOfStr[3].split(";");
+                    String[] arrOfStrEdge = arrOfStr[3].split(";");
                     Node n1 = new Node(Integer.parseInt(arrOfStr[1]));
                     Node n2 = new Node(Integer.parseInt(arrOfStrEdge[0]));
                     g.addNode(n1);
@@ -713,6 +707,74 @@ public class Graf {
 
         return g;
     }
+
+
+    /**
+     * Compute a random graf
+     *
+     * @param minOfNodes
+     *      Minimal wanted amount of nodes
+     * @param maxOfNodes
+     *      Maximal wanted amount of nodes
+     * @param minOfEdges
+     *      Minimal wanted amount of edges
+     * @param maxOfEdges
+     *      Maximal wanted amount of edges
+     *
+     * @return
+     *      The randomly computed graf
+     */
+    public static Graf generateRandomGraf(int minOfNodes, int maxOfNodes, int minOfEdges, int maxOfEdges) {
+        Graf randomGraf = new Graf();
+
+        if (minOfNodes == 0 && maxOfNodes == 0) {
+            return randomGraf;
+        }
+        //GENERATE AMOUNT OF NODES OF THE GRAF
+        Random r = new Random();
+        int amountOfNodes;
+        if (minOfNodes >= maxOfNodes) {
+            amountOfNodes = r.nextInt((minOfNodes - maxOfNodes) + 1) + maxOfNodes;
+        } else {
+            amountOfNodes = r.nextInt((maxOfNodes - minOfNodes) + 1) + minOfNodes;
+        }
+        if (amountOfNodes == 0) {
+            return randomGraf;
+        }
+        //ADD THE NODES TO THE GRAF
+        for (int i = 1; i < amountOfNodes + 1; ++i) {
+            randomGraf.addNode(i);
+        }
+
+        if (minOfEdges == 0 && maxOfEdges == 0) {
+            return randomGraf;
+        }
+        //GENERATE AMOUNT OF EDGES OF THE GRAF
+        int amountOfEdges;
+        if (minOfEdges >= maxOfEdges) {
+            amountOfEdges = r.nextInt((minOfEdges - maxOfEdges) + 1) + maxOfEdges;
+        } else {
+            amountOfEdges = r.nextInt((maxOfEdges - minOfEdges) + 1) + minOfEdges;
+        }
+        if (amountOfEdges == 0) {
+            return randomGraf;
+        }
+        //ADD THE EDGES TO THE GRAF
+        int randomFrom;
+        int randomTo;
+
+        for (int i = 0; i < amountOfEdges; ++i) {
+
+
+            randomFrom = r.nextInt((amountOfNodes - 1) + 1) + 1;
+            randomTo = r.nextInt((amountOfNodes - 1) + 1) + 1;
+            randomGraf.addEdge(randomFrom, randomTo);
+        }
+
+        return randomGraf;
+
+    }
+
 
 
 }

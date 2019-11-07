@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 
 
 /**
- * ConnectedGRaf est la classe qui représente les les graphs connectés
+ * ConnectedGRaf is the class which represents connected grafs
  *
  * @author AUBRY Clément - THIEBAUD Jérémy
  * @version 1.0
